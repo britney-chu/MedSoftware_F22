@@ -20,5 +20,15 @@ def interface():
         choice = input("Enter your choice: ")
         if choice=='9':
             return
-    
+def user_input():
+    user_in = input("Enter HDL: ")
+    return int(user_in)
+def check_HDL(HDLNum):
+    if HDLNum >= 60:
+        return "Normal"
+    elif HDLNum >= 40:
+        return "Borderline Low"
+    else:
+        return "Low"
+# take input from keyboard as a number then return that number 
 interface()
