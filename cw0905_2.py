@@ -26,6 +26,7 @@ def interface():
             HDL_driver()
         elif choice == "2":
             LDL_driver()
+
 def user_input():
     user_in = input("Enter value: ")
     return int(user_in)
