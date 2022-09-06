@@ -27,7 +27,7 @@ def interface():
         elif choice == "2":
             LDL_driver()
 def user_input():
-    user_in = input("Enter HDL value: ")
+    user_in = input("Enter value: ")
     return int(user_in)
 def check_HDL(HDLNum):
     if HDLNum >= 60:
