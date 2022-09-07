@@ -9,7 +9,8 @@
 # answer, is_adult = increment_by_five(11)
 # print("The answer is {}".format(answer))
 # print("True or false, the person is an adult: {}".format(is_adult))
-
+print("this is the bloodcalculator.py module.")
+print("Python thinks this is called {}".format(__name__))
 def interface():
     print("Blood Calculator")
     print("Options: ")
@@ -78,4 +79,5 @@ def output_LDL_result(LDL_value, charac):
     print("The results for an LDL value of {} is {}".format(LDL_value, charac))
 def output_chol_results(chol_value, charac):
     print("The results for an cholesterol value of {} is {}".format(chol_value, charac))
-interface()
+if __name__ == "__main__":
+    interface()
