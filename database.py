@@ -8,6 +8,9 @@ def main():
     db.append(create_patient_entry("Bob Boyles", 2, 34))
     db.append(create_patient_entry("Chris Chou", 3, 25))
     printdb(addTest(main(), 1, "Herpes", "Positive"))
+    room_list = ["Room 1", "Room 2", "Room 3"]
+    for i, patient in enumerate(db):
+        print("Name = {}, Room = {}".format(patient[0], room_list[i]))
     return db
 def printdb(db):
     for x in db:
