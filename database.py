@@ -21,7 +21,7 @@ def main():
     '''
 def printdb(db):
     for x in db:
-        print("Name: {}, id: {}, age: {}".format(get_full_name(db[x]),db[x]["Id"], db[x]["Age"]))
+        print("Name: {}, id: {}, age: {}, tests: {}".format(get_full_name(db[x]),db[x]["Id"], db[x]["Age"], db[x]["Tests"]))
 def get_full_name(patient):
     full_name = "{} {}".format(patient["First Name"], patient["Last Name"])
     return full_name
