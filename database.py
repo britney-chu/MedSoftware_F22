@@ -1,6 +1,20 @@
+class Patient:
+    def __init__(self, first_name, last_name, patient_id, age):
+        self.first_name = ""
+        self.last_name = ""
+        self.patient_id = ""
+        self.age = ""
+        self.tests = []
+    
+    def full_name(self):
+        return "{} {}".format(self.first_name, self.last_name)
+
+
+
+
 def create_patient_entry(patient_name, patient_id, patient_age):
-    new_patient = {"First Name" : patient_name.split()[0], "Last Name" : patient_name.split()[1], 
-                    "Id": patient_id, "Age": patient_age, "Tests": [] }
+    new_patient = Patient(patient_name.split()[0], patient_name.split()[1], patient_id, patient_age)
+    new_patient.tests = []
     return new_patient
 
 def main():
@@ -12,7 +26,7 @@ def main():
     printdb(db)
     addTest(db,3,"HDL", 100)
     printdb(db)
-    print("Patient {} is a {}".format(get_full_name(db[2]), adult_or_minor(db[2])))
+    print("Patient {} is a {}".format(db[2].full_name(), db[2].adult_or_minor()))
     '''
     room_list = ["Room 1", "Room 2", "Room 3"]
     for i, patient in enumerate(db):
