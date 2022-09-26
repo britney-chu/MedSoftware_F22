@@ -4,10 +4,10 @@ def create_patient_entry(patient_name, patient_id, patient_age):
     return new_patient
 
 def main():
-    db = []
-    db.append(create_patient_entry("Ann Ables", 1,30))
-    db.append(create_patient_entry("Bob Boyles", 2, 34))
-    db.append(create_patient_entry("Chris Chou", 3, 25))
+    db = {}
+    db[1] = create_patient_entry("Ann Ables", 1,30)
+    db[2] = create_patient_entry("Bob Boyles", 2, 34)
+    db[3] = create_patient_entry("Chris Chou", 3, 25)
 
     printdb(db)
     addTest(db,3,"HDL", 100)
@@ -21,17 +21,15 @@ def main():
     '''
 def printdb(db):
     for x in db:
-        print(x)
-        print("Name: {}, id: {}, age: {}".format(get_full_name(x),x["Id"], x["Age"]))
+        print("Name: {}, id: {}, age: {}".format(get_full_name(db[x]),db[x]["Id"], db[x]["Age"]))
 def get_full_name(patient):
     full_name = "{} {}".format(patient["First Name"], patient["Last Name"])
     return full_name
 
 def findPatient(db, ID):
-    for patient in db:
-        if patient["Id"] == ID:
-            return patient
-    return False
+    patient = db[ID]
+    return patient
+
 def addTest(db, ID, testName, testVal):
     findPatient(db,ID)["Tests"].append((testName, testVal))
     return db
