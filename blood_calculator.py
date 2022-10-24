@@ -1,15 +1,3 @@
-# def increment_by_five(x):
-#     a = x + 5
-#     if a>= 18:
-#         adult = True
-#     else:
-#         adult = False
-#     return a, adult
-
-# answer, is_adult = increment_by_five(11)
-# print("The answer is {}".format(answer))
-# print("True or false, the person is an adult: {}".format(is_adult))
-
 def interface():
     print("Blood Calculator")
     print("Options: ")
@@ -30,6 +18,7 @@ def interface():
         elif choice == "3":
             cholesterol_driver()
 
+
 def user_input():
     user_in = input("Enter value: ")
     return int(user_in)
@@ -40,6 +29,8 @@ def check_HDL(HDLNum):
         return "Borderline Low"
     else:
         return "Low"
+
+
 #driver function: calls other funtions and moves variables in between them
 def HDL_driver():
     hdl_value = user_input()
@@ -53,6 +44,7 @@ def cholesterol_driver():
     chol_value = user_input()
     answer = check_chol(chol_value)
     output_chol_results(chol_value, answer)
+
 
 def check_chol(cholNum):
     if cholNum < 200:
