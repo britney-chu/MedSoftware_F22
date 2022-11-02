@@ -73,6 +73,7 @@ def init_server():
     add_patient("Ann Ables", 1, "A+")
     add_patient("Bob Boyles", 2, "B+")
     # initialization of logging could be added here
+    logging.basicConfig(filename="server.log")
 
 
 @app.route("/new_patient", methods=["POST"])
@@ -178,9 +179,50 @@ def validate_new_patient_info(in_data):
     return True
 
 
-@app.route("/test", methods=["POST"])
-def test():
-    return "hello"
+@app.route("/add_test", methods=["POST"])
+def add_test_flask_handler():
+    in_data = request.get_json()
+    msg, status_code = add_test_worker(in_data)
+    return "Test added", 200
+
+
+def find_patient(patient_id):
+    for patient in db:
+        if patient["id"] == patient_id:
+            return patient
+    return False
+
+
+def add_test_worker(in_data):
+    msg = add_test_validation(in_data)
+    if msg is not True:
+        return msg, 400
+    add_test_to_patient(in_data)
+    return "Test added", 200
+
+
+def add_test_to_patient(in_data):
+    patient = find_patient(in_data["id"])
+    patient["test_name"].append(in_data["test_name"])
+    patient["test_restult"].append(in_data["test_restult"])
+    print_database()
+
+
+def print_database(db):
+    print(db)
+
+
+def add_test_validation(in_data):
+    expected_keys = ["id", "test_name", "test_result"]
+    expected_types = [int, str, int]
+    for ex_type, ex_key in zip(expected_keys, expected_types):
+        if ex_key not in in_data:
+            return "Key missing"
+        if type(in_data[ex_key]) is not ex_type:
+            return "Bad value type"
+    return True
+
+
 if __name__ == '__main__':
     # Call function to initialize server and database
     init_server()
