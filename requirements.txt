@@ -1,5 +1,7 @@
 jupyter
 pytest
 pytest-pycodestyle
+pymodm
+dnspython
 requests
 flask
