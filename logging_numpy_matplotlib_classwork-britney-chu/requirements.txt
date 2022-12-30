@@ -1,0 +1,17 @@
+jupyter
+pytest
+pytest-pycodestyle
+requests
+flask
+pymodm
+dnspython
+Pillow
+numpy
+pandas
+pytest
+pytest-pycodestyle
+numpy
+matplotlib
+jupyter
+pandas
+matplotlib

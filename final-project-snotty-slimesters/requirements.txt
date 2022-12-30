@@ -1,0 +1,13 @@
+pytest==7.1.3
+pytest-pycodestyle
+requests
+flask
+testfixtures
+pymodm
+dnspython
+Pillow
+pandas
+scipy
+biosppy
+py-ecg-detectors
+matplotlib
